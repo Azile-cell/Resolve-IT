@@ -1,0 +1,21 @@
+@model ResolveIT.Web.Models.Ticket
+
+@{
+    ViewData["Title"] = "Create Ticket";
+}
+
+<h1>Create Ticket</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+
+    <button type="submit">Submit Ticket</button>
+</form>
