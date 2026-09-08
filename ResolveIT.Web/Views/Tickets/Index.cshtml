@@ -1,7 +1,31 @@
+@model List<ResolveIT.Web.Models.Ticket>
+
 @{
     ViewData["Title"] = "Tickets";
 }
 
 <h1>Support Tickets</h1>
+<p>Total tickets: @Model.Count</p>
+@if (Model.Count == 0)
+{
+    <p>No tickets have been submitted yet.</p>
+}
+else
+{
+    <ul>
+        @foreach (var ticket in Model)
+        {
+            <li>
+                <strong>@ticket.Title</strong>
+                 <p>@ticket.Description</p>
 
+                 <p>Priority: @ticket.Priority</p>
+                 <p>Status: @ticket.Status</p>
+                 <p>Created: @ticket.CreatedAt.ToLocalTime()</p>
+            </li>
+            
+        }
+    </ul>
+}
+ 
 <p>This is where students and staff will view their IT support tickets.</p>

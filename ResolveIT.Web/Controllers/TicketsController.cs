@@ -7,9 +7,12 @@ namespace ResolveIT.Web.Controllers;
 
 public class TicketsController : Controller
 {
+    private static readonly List<Ticket> _tickets = new List<Ticket>();
     public IActionResult Index()
     {
-        return View();
+        return View(_tickets);
+
+    
     }
 
 public IActionResult Create()
@@ -25,8 +28,10 @@ public IActionResult Create(Ticket ticket)
         {
             return View(ticket);
         }
+        _tickets.Add(ticket);
+         return RedirectToAction("Index");
         
-        return Content($"Ticket received: {ticket.Title}");
     }
+    
 
 }
