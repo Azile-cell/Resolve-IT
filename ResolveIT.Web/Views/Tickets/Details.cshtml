@@ -1,0 +1,31 @@
+@model ResolveIT.Web.Models.Ticket
+
+@{
+    ViewData["Title"] = "Ticket Details";
+}
+
+<h1>Ticket Details</h1>
+
+<dl>
+    <dt>Ticket Number</dt>
+    <dd>@Model.Id</dd>
+
+    <dt>Title</dt>
+    <dd>@Model.Title</dd>
+
+    <dt>Description</dt>
+    <dd>@Model.Description</dd>
+
+    <dt>Priority</dt>
+    <dd>@Model.Priority</dd>
+
+    <dt>Status</dt>
+    <dd>@Model.Status</dd>
+
+    <dt>Created</dt>
+    <dd>@Model.CreatedAt.ToLocalTime()</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit Ticket</a>
+
+<a asp-action="Index">Back to Tickets</a>

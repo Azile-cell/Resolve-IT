@@ -5,6 +5,13 @@
 }
 
 <h1>Support Tickets</h1>
+<p>
+    <a asp-controller="Tickets" asp-action="Create">
+        Create New Ticket
+    </a>
+</p>
+
+
 <p>Total tickets: @Model.Count</p>
 @if (Model.Count == 0)
 {
@@ -17,11 +24,18 @@ else
         {
             <li>
                 <strong>@ticket.Title</strong>
+
                  <p>@ticket.Description</p>
 
                  <p>Priority: @ticket.Priority</p>
                  <p>Status: @ticket.Status</p>
                  <p>Created: @ticket.CreatedAt.ToLocalTime()</p>
+
+                 <a asp-action="Details" asp-route-id="@ticket.Id">Details</a>
+
+                 <a asp-action="Edit" asp-route-id="@ticket.Id">Edit</a>
+
+                 <a asp-action="Delete" asp-route-id="@ticket.Id">Delete</a>
             </li>
             
         }
