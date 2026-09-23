@@ -34,10 +34,9 @@
 
             <dt class="col-sm-3">Created</dt>
             <dd class="col-sm-9">
-                @Model.CreatedAt
-                    .ToLocalTime()
-                    .ToString("dd MMM yyyy HH:mm")
+                @(Model.CreatedAt.ToLocalTime().ToString("dd MMM yyyy HH:mm"))
             </dd>
+
         </dl>
     </div>
 

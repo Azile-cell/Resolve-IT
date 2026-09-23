@@ -58,11 +58,8 @@ else
                             </span>
                         </p>
 
-                        <p class="text-muted">
-                            Created:
-                            @ticket.CreatedAt
-                                .ToLocalTime()
-                                .ToString("dd MMM yyyy HH:mm")
+                         <p>
+                            Created: @(ticket.CreatedAt.ToLocalTime().ToString("dd MMM yyyy HH:mm"))
                         </p>
                     </div>
 
