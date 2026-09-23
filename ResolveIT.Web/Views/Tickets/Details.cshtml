@@ -4,28 +4,53 @@
     ViewData["Title"] = "Ticket Details";
 }
 
-<h1>Ticket Details</h1>
+<h1 class="mb-4">Ticket Details</h1>
 
-<dl>
-    <dt>Ticket Number</dt>
-    <dd>@Model.Id</dd>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Ticket Number</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
 
-    <dt>Title</dt>
-    <dd>@Model.Title</dd>
+            <dt class="col-sm-3">Title</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
 
-    <dt>Description</dt>
-    <dd>@Model.Description</dd>
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
 
-    <dt>Priority</dt>
-    <dd>@Model.Priority</dd>
+            <dt class="col-sm-3">Priority</dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-primary">
+                    @Model.Priority
+                </span>
+            </dd>
 
-    <dt>Status</dt>
-    <dd>@Model.Status</dd>
+            <dt class="col-sm-3">Status</dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-secondary">
+                    @Model.Status
+                </span>
+            </dd>
 
-    <dt>Created</dt>
-    <dd>@Model.CreatedAt.ToLocalTime()</dd>
-</dl>
+            <dt class="col-sm-3">Created</dt>
+            <dd class="col-sm-9">
+                @Model.CreatedAt
+                    .ToLocalTime()
+                    .ToString("dd MMM yyyy HH:mm")
+            </dd>
+        </dl>
+    </div>
 
-<a asp-action="Edit" asp-route-id="@Model.Id">Edit Ticket</a>
+    <div class="card-footer bg-white">
+        <a asp-action="Edit"
+           asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            Edit Ticket
+        </a>
 
-<a asp-action="Index">Back to Tickets</a>
+        <a asp-action="Index"
+           class="btn btn-outline-secondary">
+            Back to Tickets
+        </a>
+    </div>
+</div>

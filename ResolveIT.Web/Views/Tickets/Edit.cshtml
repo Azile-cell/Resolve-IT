@@ -1,40 +1,75 @@
-@model ResolveIT.Web.Models.Ticket
 @using ResolveIT.Web.Models
+@model ResolveIT.Web.Models.Ticket
 
 @{
     ViewData["Title"] = "Edit Ticket";
 }
 
-<h1>Edit Ticket</h1>
+<h1 class="mb-4">Edit Ticket</h1>
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit"
+      method="post"
+      class="card shadow-sm p-4">
+
     <input asp-for="Id" type="hidden" />
 
-    <div>
-        <label asp-for="Title"></label>
-        <input asp-for="Title" readonly />
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
     </div>
 
-    <div>
-        <label asp-for="Description"></label>
-        <textarea asp-for="Description" readonly></textarea>
+    <div class="mb-3">
+        <label asp-for="Title"
+               class="form-label"></label>
+
+        <input asp-for="Title"
+               class="form-control bg-light"
+               readonly />
     </div>
 
-    <div>
-        <label asp-for="Priority"></label>
+    <div class="mb-3">
+        <label asp-for="Description"
+               class="form-label"></label>
+
+        <textarea asp-for="Description"
+                  class="form-control bg-light"
+                  rows="5"
+                  readonly>
+        </textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Priority"
+               class="form-label"></label>
+
         <select asp-for="Priority"
-                asp-items="Html.GetEnumSelectList<TicketPriority>()">
+                asp-items="Html.GetEnumSelectList<TicketPriority>()"
+                class="form-select">
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Status"
+               class="form-label"></label>
+
+        <select asp-for="Status"
+                asp-items="Html.GetEnumSelectList<TicketStatus>()"
+                class="form-select">
         </select>
     </div>
 
     <div>
-        <label asp-for="Status"></label>
-        <select asp-for="Status"
-                asp-items="Html.GetEnumSelectList<TicketStatus>()">
-        </select>
+        <button type="submit"
+                class="btn btn-success">
+            Save Changes
+        </button>
+
+        <a asp-action="Index"
+           class="btn btn-outline-secondary">
+            Cancel
+        </a>
     </div>
-
-    <button type="submit">Save Changes</button>
-
-    <a asp-action="Index">Cancel</a>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

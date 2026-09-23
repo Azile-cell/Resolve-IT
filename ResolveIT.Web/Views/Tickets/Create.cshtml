@@ -5,24 +5,62 @@
     ViewData["Title"] = "Create Ticket";
 }
 
-<h1>Create Ticket</h1>
+<h1 class="mb-4">Create Ticket</h1>
 
-<form asp-action="Create" method="post">
-    <div>
-        <label asp-for="Title"></label>
-        <input asp-for="Title" />
+<form asp-action="Create"
+      method="post"
+      class="card shadow-sm p-4">
+
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Title"
+               class="form-label"></label>
+
+        <input asp-for="Title"
+               class="form-control" />
+
+        <span asp-validation-for="Title"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description"
+               class="form-label"></label>
+
+        <textarea asp-for="Description"
+                  class="form-control"
+                  rows="5"></textarea>
+
+        <span asp-validation-for="Description"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Priority"
+               class="form-label"></label>
+
+        <select asp-for="Priority"
+                asp-items="Html.GetEnumSelectList<TicketPriority>()"
+                class="form-select">
+        </select>
     </div>
 
     <div>
-        <label asp-for="Description"></label>
-        <textarea asp-for="Description"></textarea>
-    </div>
-    <div>
-    <label asp-for="Priority"></label>
-    <select asp-for="Priority"
-            asp-items="Html.GetEnumSelectList<TicketPriority>()">
-    </select>
-</div>
+        <button type="submit"
+                class="btn btn-primary">
+            Submit Ticket
+        </button>
 
-    <button type="submit">Submit Ticket</button>
+        <a asp-action="Index"
+           class="btn btn-outline-secondary">
+            Cancel
+        </a>
+    </div>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

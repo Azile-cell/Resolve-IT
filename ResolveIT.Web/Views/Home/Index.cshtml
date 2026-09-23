@@ -1,8 +1,75 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="text-center py-5">
+    <span class="badge bg-primary mb-3">
+        IT Support Made Simple
+    </span>
+
+    <h1 class="display-4 fw-bold">
+        ResolveIT
+    </h1>
+
+    <p class="lead text-muted mx-auto"
+       style="max-width: 700px;">
+        A simple IT support ticket system for students
+        and staff to report technical problems and track
+        their progress.
+    </p>
+
+    <div class="mt-4">
+        <a asp-controller="Tickets"
+           asp-action="Create"
+           class="btn btn-primary btn-lg">
+            Submit a Ticket
+        </a>
+
+        <a asp-controller="Tickets"
+           asp-action="Index"
+           class="btn btn-outline-secondary btn-lg">
+            View Tickets
+        </a>
+    </div>
+</section>
+
+<section class="row g-4 mt-3">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Report Problems</h2>
+
+                <p class="text-muted">
+                    Submit clear information about Wi-Fi,
+                    computer, software or account problems.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Set Priorities</h2>
+
+                <p class="text-muted">
+                    Mark tickets as Low, Medium, High or
+                    Critical according to their urgency.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="h5">Track Progress</h2>
+
+                <p class="text-muted">
+                    Follow tickets from Open through
+                    In Progress, Resolved and Closed.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
